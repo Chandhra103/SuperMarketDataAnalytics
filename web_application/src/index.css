@@ -130,7 +130,7 @@ h3 { font-size: 17px; letter-spacing: -.03em; }
 .chart-legend span, .matrix-legend span { transition: color .18s ease; }.chart-legend span:hover, .matrix-legend span:hover { color: var(--ink); }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 
-/* Super Market Data Analytics theme override */
+/* SuperMarket Data Analytics theme override */
 :root { --ink:#102d3a; --ink-soft:#2e4e59; --muted:#738992; --line:#dce9e7; --paper:#f3f8f7; --card:#ffffff; --blue:#157d9b; --blue-deep:#0f6179; --teal:#0b8f83; --gold:#e4a33b; --coral:#e86b73; --shadow:0 16px 42px rgba(16,45,58,.08); }
 body { background:var(--paper); }
 .sidebar { background:linear-gradient(160deg,#082d3b,#0d202c 72%); }
