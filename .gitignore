@@ -1,0 +1,6 @@
+__pycache__/
+.ipynb_checkpoints/
+node_modules/
+dist/
+web_application/.manus-logs/
+web_application/.project-config.json
