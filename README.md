@@ -1,11 +1,85 @@
 # SuperMarket Data Analytics
 
+## Student and internship
+
 **Student:** ChandhraShekhar  
-**Program:** IBM SkillsBuild Data Analytics with AI Academic Internship Program
+**Internship:** IBM SkillsBuild Data Analytics with AI Academic Internship Program  
+**Conducted by:** BharatCares in association with AICTE
 
-This repository contains the complete internship project built from the supplied `SUPERMARKETDATA-dataanyliticsprojectdataset.pdf`. It follows **DATA → INFORMATION → INSIGHT → DECISION → ACTION** and uses the supermarket dataset as the single source of truth.
+## Project overview
 
-## Repository structure
+This project analyzes the supplied supermarket transaction dataset and converts validated records into business information, evidence-led insights, decisions, and actions. The workflow is **DATA → INFORMATION → INSIGHT → DECISION → ACTION**. The Jupyter notebook, report, dashboard, and README use the same 500-row CSV dataset.
+
+## Problem statement
+
+Raw supermarket transactions do not immediately show which categories, products, cities, branches, customer segments, payment methods, or rating groups deserve attention. The project provides a reproducible descriptive analytics and Business Intelligence view without inventing profit, margin, retention, churn, or causal effects that are not supported by the source fields.
+
+## Objectives
+
+- Validate and clean the supplied transaction table.
+- Calculate reliable sales, quantity, transaction, rating, product, category, branch, city, customer, payment, and time KPIs.
+- Explain important findings with FACT → INSIGHT → OPPORTUNITY/RISK → ACTION.
+- Provide a working interactive web application for stakeholder exploration.
+- Make an honest modeling decision based on the available data and leakage risk.
+
+## Dataset
+
+The actual dataset was extracted from the supplied PDF and saved as `dataset/supermarket_data.csv`. It contains **500 rows and 13 columns**: Invoice ID, Date, Branch, City, Customer Type, Gender, Product, Category, Quantity, Unit Price, Payment, Rating, and Sales. Sales was validated against Quantity × Unit Price.
+
+### Column descriptions
+
+| Column | Description |
+|---|---|
+| Invoice ID | Unique transaction identifier |
+| Date | Transaction date |
+| Branch / City | Store branch and city |
+| Customer Type / Gender | Customer segment fields |
+| Product / Category | Purchased item and grouping |
+| Quantity | Units in the transaction |
+| Unit Price | Price per unit |
+| Payment | Payment method |
+| Rating | Customer feedback rating from 0 to 5 |
+| Sales | Transaction sales value |
+
+**Dataset Source: To be added manually.** The supplied PDF did not include a genuine public source URL. This is the one manual item to complete before internship submission if the original source link is available.
+
+## Data quality and cleaning
+
+The project verifies data types, missing values, duplicate rows, duplicate Invoice IDs, date validity, positive Quantity and Unit Price, valid ratings, and Sales = Quantity × Unit Price. The validated extract has **0 missing values, 0 duplicate rows, 0 duplicate Invoice IDs, and 0 Sales formula mismatches**. Dates and analytical features are parsed in the notebook; valid source records are retained rather than silently altered.
+
+## Analysis methodology
+
+The notebook calculates descriptive statistics and KPIs, monthly trends, product and category rankings, branch/city comparisons, customer type and gender summaries, payment-method mix, rating distributions, category ratings, and descriptive outlier information. Visualizations are limited to meaningful business questions.
+
+## KPIs and actual findings
+
+- Total Sales: **₹244,411.08**
+- Transactions: **500**
+- Quantity sold: **2,768 units**
+- Average transaction: **₹488.82**
+- Average rating: **3.99 / 5**
+- Cities covered: **4**
+- Leading category by Sales: **Beverages**
+- Leading product by Sales: **Cheese**
+- Leading city by Sales: **Mumbai**
+- Most frequent payment method: **UPI**
+
+## Business insights and recommendations
+
+1. **Category and product contribution:** use leading categories and products as operational benchmarks, while reviewing lower-performing segments before shifting inventory or campaign attention.
+2. **Branch and city differences:** compare store execution and availability across locations; the dataset shows association, not causation, so operational reasons should be validated separately.
+3. **Customer and payment mix:** use transaction counts and sales contribution to plan service coverage and maintain stable payment availability.
+4. **Ratings:** use category and branch rating comparisons as feedback signals for service review, not as proof that a single factor caused satisfaction.
+
+## Predictive-modeling decision
+
+Sales prediction is not used because Sales is deterministically derived from Quantity × Unit Price and would create leakage or merely reproduce a formula. The notebook retains a transparent exploratory Rating model for methodology comparison, but it is not treated as a production forecast because it does not outperform the mean baseline on the held-out data.
+
+## Technologies
+
+Python, pandas, NumPy, Matplotlib, Seaborn, scikit-learn, Jupyter Notebook, React, TypeScript, Vite, Recharts, and Lucide icons.
+
+## Project structure
 
 ```text
 SuperMarketDataAnalytics/
@@ -17,62 +91,44 @@ SuperMarketDataAnalytics/
 │   └── supermarket_data.csv
 └── web_application/
     ├── README.md
-    ├── requirements.txt / package.json
+    ├── package.json
     ├── src/
     ├── public/
-    └── other Vite/TypeScript files
+    ├── server/
+    ├── shared/
+    └── Vite/TypeScript configuration
 ```
 
-## Dataset validation
+## Installation and execution
 
-The extracted dataset contains **500 records and 13 columns**: Invoice ID, Date, Branch, City, Customer Type, Gender, Product, Category, Quantity, Unit Price, Payment, Rating, and Sales. Validation found **0 missing values, 0 duplicate rows, 0 duplicate invoice IDs, and 0 Sales formula mismatches**. Sales was checked against Quantity × Unit Price.
-
-## Notebook and report
-
-`SuperMarketDataAnalytics.ipynb` contains data loading, cleaning, validation, KPI calculation, exploratory analysis, category/product analysis, city/branch analysis, customer analysis, payment analysis, rating analysis, and evidence-led business insights.
-
-`SuperMarketDataAnalytics_ProjectReport.docx` documents the method, calculated results, limitations, findings, and recommended actions.
-
-## Predictive modeling decision
-
-Sales prediction was not used because Sales is deterministically derived from Quantity × Unit Price. An exploratory Rating model was evaluated separately; it did not outperform the mean baseline, so the final project keeps the primary workflow analytics-first rather than presenting an unhelpful model as business intelligence.
-
-## Run the notebook
+### Notebook
 
 ```bash
 pip install -r requirements.txt
 jupyter notebook SuperMarketDataAnalytics.ipynb
 ```
 
-## Run the web application
+Run all cells from the repository root so the relative path `dataset/supermarket_data.csv` resolves correctly.
+
+### Web application
 
 ```bash
 cd web_application
 pnpm install
+pnpm check
 pnpm dev
 ```
 
-The web application contains the validated supermarket data in `web_application/src/data.ts`, generated from `dataset/supermarket_data.csv`. It includes synchronized city, branch, category, and customer-type filters and sections for Executive Overview, Sales & Products, Customer Analysis, Branch & City Analysis, Payment Analysis, Rating Analysis, and Business Insights.
-
-## Key calculated results
-
-- Total Sales: **₹244,411.08**
-- Quantity sold: **2,768 units**
-- Average transaction: **₹488.82**
-- Average rating: **3.99 / 5**
-- Leading category: **Beverages**
-- Leading product: **Cheese**
-- Leading city: **Mumbai**
-- Most frequent payment method: **UPI**
-
-## Dataset source
-
-**Dataset Source: To be added manually.** The supplied PDF did not include a source URL. This is the one manual item to complete before internship submission if the original source link is available.
+For a production build, run `pnpm build`. The dashboard uses the same validated records embedded in `web_application/src/data.ts`; no API key or backend credential is required.
 
 ## Limitations
 
-The dataset is a static six-month extract and does not include margin, inventory, promotions, payment failures, or longitudinal customer history. Associations are not treated as causal effects.
+The source is a static six-month extract and does not include margin, inventory, promotions, payment failures, or longitudinal customer history. Therefore the project cannot calculate profit, margin, retention, churn, or causal effects.
 
-## Future Scope
+## Future scope
 
-Future extensions could add a validated date-range filter, inventory and margin fields, payment-failure data, longer customer history, and a genuine future outcome target before introducing predictive modeling.
+Add a validated date-range filter, inventory and margin fields, promotion and payment-failure data, longer customer history, and a genuine future outcome target before introducing operational predictive modeling.
+
+## Conclusion
+
+The project provides a reproducible SuperMarket Data Analytics submission and an interactive Business Intelligence dashboard grounded in the supplied dataset.
