@@ -1,4 +1,4 @@
-# Super Market Data Analytics
+# SuperMarket Data Analytics
 
 **Student:** ChandhraShekhar  
 **Program:** IBM SkillsBuild Data Analytics with AI Academic Internship Program
@@ -65,6 +65,14 @@ The web application contains the validated supermarket data in `web_application/
 - Leading city: **Mumbai**
 - Most frequent payment method: **UPI**
 
+## Dataset source
+
+**Dataset Source: To be added manually.** The supplied PDF did not include a source URL. This is the one manual item to complete before internship submission if the original source link is available.
+
 ## Limitations
 
 The dataset is a static six-month extract and does not include margin, inventory, promotions, payment failures, or longitudinal customer history. Associations are not treated as causal effects.
+
+## Future Scope
+
+Future extensions could add a validated date-range filter, inventory and margin fields, payment-failure data, longer customer history, and a genuine future outcome target before introducing predictive modeling.

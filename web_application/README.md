@@ -1,6 +1,6 @@
-# Super Market Data Analytics — Web Application
+# SuperMarket Data Analytics — Web Application
 
-This is the React + Vite dashboard for the Super Market Data Analytics internship project.
+This is the React + Vite dashboard for the SuperMarket Data Analytics internship project.
 
 ## Features
 
@@ -33,3 +33,24 @@ pnpm build
 ```
 
 The project uses React, TypeScript, Vite, Recharts, and Lucide icons. No backend, database, or generic e-commerce data is required.
+
+## Folder structure
+
+```text
+web_application/
+├── README.md
+├── package.json
+├── index.html
+├── src/
+├── public/
+├── server/
+└── shared/
+```
+
+## Environment setup
+
+No API keys, passwords, tokens, database credentials, or `.env` values are required. The dashboard is a static-data application; the validated dataset is embedded in `src/data.ts` for reproducible local execution.
+
+## Important configuration
+
+`vite.config.ts` uses the repository-local `src/` directory as the Vite root and `@` as the source alias. The production build writes to `dist/public`; generated build output and `node_modules` are excluded by the root `.gitignore`.
