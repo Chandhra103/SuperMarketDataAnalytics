@@ -121,6 +121,34 @@ pnpm dev
 
 For a production build, run `pnpm build`. The dashboard uses the same validated records embedded in `web_application/src/data.ts`; no API key or backend credential is required.
 
+## Web Application Preview
+
+The following previews are screenshots of the actual working SuperMarket Data Analytics application running against the validated 500-row dataset. The source files are stored in `web_application/screenshots/`.
+
+### Dashboard / Executive Overview
+
+![SuperMarket Data Analytics executive overview](web_application/screenshots/dashboard-executive-overview.png)
+
+The executive overview presents verified Sales, Quantity, Average Transaction, Average Rating, and Cities Covered KPIs, together with the monthly sales trend, category contribution, product ranking, and synchronized filters.
+
+### Data Quality
+
+![SuperMarket Data Analytics data-quality validation](web_application/screenshots/data-quality-validation.png)
+
+This validation view shows the actual pipeline status: 500 records validated, 0 missing values, 0 duplicates, and 0 Sales formula mismatches. The filters can narrow the analysis by city, branch, category, or customer type.
+
+### Exploratory Analysis
+
+![SuperMarket Data Analytics exploratory sales and product analysis](web_application/screenshots/exploratory-sales-products.png)
+
+The Sales & Products page compares category contribution, monthly sales across the period, and product-level Sales and Quantity rankings to support assortment and execution decisions.
+
+### Business Insights / Risks and Opportunities
+
+![SuperMarket Data Analytics business insights](web_application/screenshots/business-insights.png)
+
+The Business Insights page translates calculated findings into FACT → INSIGHT → OPPORTUNITY/RISK → ACTION statements for category, location, payment, and modeling decisions, while stating the dataset limitations.
+
 ## Limitations
 
 The source is a static six-month extract and does not include margin, inventory, promotions, payment failures, or longitudinal customer history. Therefore the project cannot calculate profit, margin, retention, churn, or causal effects.
